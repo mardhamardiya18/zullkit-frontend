@@ -1,8 +1,8 @@
 <script setup>
 defineProps({
-  title: String,
-  count: Number,
-  image: String,
+  name: String,
+  products_count: Number,
+  thumbnails: String,
 });
 </script>
 
@@ -14,7 +14,7 @@ defineProps({
           <img
             alt="Placeholder"
             class="block w-full h-auto"
-            :src="'/src/assets/img/' + image"
+            :src="thumbnails"
           />
         </div>
       </a>
@@ -25,11 +25,11 @@ defineProps({
             class="font-semibold text-black no-underline hover:underline"
             href="#"
           >
-            {{ title }}
+            {{ name }}
           </a>
         </h1>
         <span class="block text-sm font-light text-gray-500 no-underline">
-          {{ count }} items
+          {{ products_count }} items
         </span>
       </header>
     </div>

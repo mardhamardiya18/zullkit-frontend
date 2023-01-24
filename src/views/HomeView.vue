@@ -1,14 +1,26 @@
 <script setup>
 import CategoriesCard from "./../components/CategoriesCard.vue";
 import ItemsCard from "./../components/ItemsCard.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import axios from "axios";
 
-const categories = ref([
-  { id: 1, title: "Mobile UI KIT", count: 15, image: "categories-1.jpg" },
-  { id: 2, title: "Fonts", count: 10, image: "categories-2.jpg" },
-  { id: 3, title: "Icons KIT", count: 15, image: "categories-3.jpg" },
-  { id: 4, title: "Web UI KIT", count: 11, image: "categories-4.jpg" },
-]);
+const categories = ref([]);
+
+async function getCategoriesData() {
+  try {
+    const response = await axios.get(
+      "https://zullkit-backend.buildwithangga.id/api/categories"
+    );
+    console.log(response.data.data.data);
+    categories.value = response.data.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+onMounted(() => {
+  getCategoriesData();
+});
 
 const items = ref([
   {
@@ -84,9 +96,9 @@ const items = ref([
         <CategoriesCard
           v-for="category in categories"
           :key="category.id"
-          :title="category.title"
-          :count="category.count"
-          :image="category.image"
+          :name="category.name"
+          :products_count="category.products_count"
+          :thumbnails="category.thumbnails"
         />
       </div>
     </div>
