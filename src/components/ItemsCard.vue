@@ -21,12 +21,12 @@ defineProps({
 
       <header class="px-4 mb-4 leading-tight">
         <h1 class="text-lg">
-          <a
+          <RouterLink
             class="font-semibold text-black no-underline hover:underline"
-            href="#"
+            to="/detail"
           >
             {{ name }}
-          </a>
+          </RouterLink>
         </h1>
         <span class="block text-sm font-light text-gray-500 no-underline">
           {{ category }}
