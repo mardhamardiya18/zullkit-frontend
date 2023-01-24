@@ -18,6 +18,7 @@ const router = createRouter({
     {
       path: '/pricing',
       name: 'pricing',
+      component: () => import('@/views/PricingView.vue')
     },
     {
       path: '/login',
@@ -30,9 +31,14 @@ const router = createRouter({
       component: RegisterView
     },
     {
-      path: '/detail',
-      name: 'detail',
+      path: '/product/:id',
+      name: 'product',
       component: () => import('@/views/Detail.vue')
+    },
+    {
+      path: '/success',
+      name: 'success',
+      component: () => import('@/views/SuccessView.vue')
     }
     
   ]

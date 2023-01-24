@@ -13,7 +13,7 @@ const galleries = ref([
 <template>
   <section id="gallery">
     <img
-      :src="'src/assets/img/' + defaultImg"
+      :src="'/src/assets/img/' + defaultImg"
       alt=""
       class="w-full mt-6 rounded-2xl"
     />
