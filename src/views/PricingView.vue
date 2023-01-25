@@ -24,7 +24,7 @@
                 <ul class="mb-6 text-gray-700">
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -32,7 +32,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -40,7 +40,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -48,7 +48,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -56,7 +56,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -82,7 +82,7 @@
                 <ul class="mb-6 text-gray-700">
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -90,7 +90,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -98,7 +98,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -106,7 +106,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -114,7 +114,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -122,7 +122,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -130,7 +130,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -138,7 +138,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
@@ -146,7 +146,7 @@
                   </li>
                   <li class="mb-3">
                     <img
-                      src="img/icon-check.png"
+                      src="@/assets/img/icon-check.png"
                       class="float-left w-6 mr-2"
                       alt=""
                     />
