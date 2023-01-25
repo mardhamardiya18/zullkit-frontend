@@ -5,11 +5,12 @@ import { ref, onMounted } from "vue";
 import axios from "axios";
 
 const categories = ref([]);
+const products = ref([]);
 
 async function getCategoriesData() {
   try {
     const response = await axios.get(
-      "https://zullkit-backend.buildwithangga.id/api/categories"
+      "https://zullkit-backend.buildwithangga.id/api/categories?show_product=&limit=4"
     );
     console.log(response.data.data.data);
     categories.value = response.data.data.data;
@@ -18,25 +19,22 @@ async function getCategoriesData() {
   }
 }
 
+async function getProductsData() {
+  try {
+    const response = await axios.get(
+      "https://zullkit-backend.buildwithangga.id/api/products"
+    );
+    console.log(response.data.data.data);
+    products.value = response.data.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 onMounted(() => {
   getCategoriesData();
+  getProductsData();
 });
-
-const items = ref([
-  {
-    id: 1,
-    name: "Mobile UI KIT",
-    category: "Mobile UI KIT",
-    image: "items-1.jpg",
-  },
-  { id: 2, name: "Modern Fonts", category: "Fonts", image: "items-2.jpg" },
-  {
-    id: 3,
-    name: "Website Design",
-    category: "Web UI KIT",
-    image: "items-3.jpg",
-  },
-]);
 </script>
 
 <template>
@@ -107,12 +105,12 @@ const items = ref([
       <h2 class="mb-4 text-xl font-medium md:mb-0 md:text-lg">New Items</h2>
       <div class="flex flex-wrap -mx-1 lg:-mx-4">
         <ItemsCard
-          v-for="item in items"
-          :key="item.id"
-          :id="item.id"
-          :name="item.name"
-          :category="item.category"
-          :image="item.image"
+          v-for="product in products"
+          :key="product.id"
+          :id="product.id"
+          :name="product.name"
+          :subtitle="product.subtitle"
+          :image="product.thumbnails"
         />
       </div>
     </div>

@@ -1,6 +1,8 @@
 <script setup>
 import Gallery from "@/components/detail/Gallery.vue";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
+
+const item = ref("");
 
 onMounted(() => {
   window.scrollTo(0, 0);

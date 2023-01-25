@@ -14,6 +14,12 @@ const router = createRouter({
     {
       path: '/categories',
       name: 'categories',
+      component: () => import('@/views/CategoriesView.vue')
+    },
+    {
+      path: '/categories/:id',
+      name: 'categories-item',
+      component: () => import('@/views/CategoriesItem.vue')
     },
     {
       path: '/pricing',
@@ -41,7 +47,9 @@ const router = createRouter({
       component: () => import('@/views/SuccessView.vue')
     }
     
-  ]
+  ],
+  linkActiveClass: 'router-link-active',
+    linkExactActiveClass: 'router-link-exact-active',
 })
 
 export default router
