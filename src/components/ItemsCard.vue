@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from "vue-router";
 defineProps({
   id: Number,
   name: String,

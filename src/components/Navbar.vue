@@ -1,4 +1,6 @@
-<script></script>
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <template>
   <div>
     <header>

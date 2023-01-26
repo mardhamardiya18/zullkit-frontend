@@ -2,6 +2,7 @@
 import CategoriesCard from "./../components/CategoriesCard.vue";
 import ItemsCard from "./../components/ItemsCard.vue";
 import { ref, onMounted } from "vue";
+
 import axios from "axios";
 
 const categories = ref([]);
@@ -94,6 +95,7 @@ onMounted(() => {
         <CategoriesCard
           v-for="category in categories"
           :key="category.id"
+          :id="category.id"
           :name="category.name"
           :products_count="category.products_count"
           :thumbnails="category.thumbnails"
