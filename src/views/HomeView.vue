@@ -13,7 +13,7 @@ async function getCategoriesData() {
     const response = await axios.get(
       "https://zullkit-backend.buildwithangga.id/api/categories?show_product=&limit=4"
     );
-    console.log(response.data.data.data);
+
     categories.value = response.data.data.data;
   } catch (error) {
     console.log(error);
@@ -25,7 +25,7 @@ async function getProductsData() {
     const response = await axios.get(
       "https://zullkit-backend.buildwithangga.id/api/products"
     );
-    console.log(response.data.data.data);
+
     products.value = response.data.data.data;
   } catch (error) {
     console.log(error);
