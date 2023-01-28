@@ -1,6 +1,11 @@
 <script setup>
 import axios from "axios";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/user.js";
+
+const route = useRouter();
+const user = useUserStore();
 
 const form = ref({
   email: "",
@@ -19,6 +24,9 @@ async function login() {
 
     localStorage.setItem("token", response.data.data.access_token);
     localStorage.setItem("token_type", response.data.data.token_type);
+
+    user.fetchUser();
+    route.push("/");
   } catch (error) {
     console.log(error.message);
   }

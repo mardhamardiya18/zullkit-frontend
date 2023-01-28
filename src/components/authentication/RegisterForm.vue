@@ -1,6 +1,11 @@
 <script setup>
 import axios from "axios";
 import { ref } from "vue";
+import { useUserStore } from "@/stores/user.js";
+import { useRouter } from "vue-router";
+
+const user = useUserStore();
+const router = useRouter();
 
 const form = ref({
   name: "",
@@ -20,9 +25,11 @@ async function register() {
         title: form.value.title,
       }
     );
-    console.log(response);
     localStorage.setItem("token", response.data.data.access_token);
-    localStorage.setItem("type", response.data.data.token_type);
+    localStorage.setItem("token_type", response.data.data.token_type);
+
+    user.fetchUser();
+    router.push("/");
   } catch (error) {
     console.log(error);
   }
@@ -56,6 +63,7 @@ async function register() {
     <div class="mb-4">
       <label class="block mb-1" for="password">Password</label>
       <input
+        @keyup.enter="register"
         v-model="form.password"
         placeholder="Type your password"
         id="password"

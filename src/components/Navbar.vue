@@ -1,5 +1,18 @@
 <script setup>
+import { onMounted, computed } from "vue";
+import { useUserStore } from "@/stores/user";
 import { RouterLink } from "vue-router";
+
+import AuthButton from "./layout/AuthButton.vue";
+import UserInfo from "./layout/UserInfo.vue";
+
+const userStore = useUserStore();
+const user = computed(() => userStore.getUser);
+const isLoggedIn = computed(() => userStore.isLoggedIn);
+
+onMounted(() => {
+  userStore.fetchUser();
+});
 </script>
 <template>
   <div>
@@ -18,12 +31,8 @@ import { RouterLink } from "vue-router";
             />
           </RouterLink>
           <div class="flex md:order-2">
-            <RouterLink
-              to="/login"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Get started
-            </RouterLink>
+            <UserInfo v-if="isLoggedIn" :user="user.data" />
+            <AuthButton v-else />
             <button
               data-collapse-toggle="navbar-cta"
               type="button"
