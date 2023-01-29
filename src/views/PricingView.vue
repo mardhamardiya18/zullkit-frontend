@@ -1,24 +1,35 @@
 <script setup>
+import { computed } from "vue";
 import axios from "axios";
+import { useUserStore } from "../stores/user";
+import { useRouter } from "vue-router";
+
+const route = useRouter();
+const user = useUserStore();
+const isLoggedIn = computed(() => user.isLoggedIn);
 
 async function checkout(price) {
-  try {
-    const response = await axios.post(
-      "https://zullkit-backend.buildwithangga.id/api/checkout",
-      { payment_total: price, payment_status: "PENDING" },
-      {
-        headers: {
-          Authorization:
-            localStorage.getItem("token_type") +
-            " " +
-            localStorage.getItem("token"),
-        },
-      }
-    );
+  if (isLoggedIn == true) {
+    try {
+      const response = await axios.post(
+        "https://zullkit-backend.buildwithangga.id/api/checkout",
+        { payment_total: price, payment_status: "PENDING" },
+        {
+          headers: {
+            Authorization:
+              localStorage.getItem("token_type") +
+              " " +
+              localStorage.getItem("token"),
+          },
+        }
+      );
 
-    window.location.href = response.data.data.payment_url;
-  } catch (error) {
-    console.log(error.message);
+      window.location.href = response.data.data.payment_url;
+    } catch (error) {
+      console.log(error.message);
+    }
+  } else {
+    route.push("/login");
   }
 }
 </script>
