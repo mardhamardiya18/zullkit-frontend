@@ -11,10 +11,6 @@ let thumbnail = ref(props.defaultImage);
 function changeImage(image) {
   this.thumbnail = image;
 }
-
-onMounted(() => {
-  console.log(props.defaultImage);
-});
 </script>
 
 <template>
