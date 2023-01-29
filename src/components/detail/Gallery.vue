@@ -2,15 +2,22 @@
 import { ref, onMounted } from "vue";
 
 const props = defineProps({
-  defaultImage: String,
+  defaultImage: {
+    type: String,
+    default: "/src/assets/img/gallery-1.png",
+  },
   galleries: Array,
 });
 
-let thumbnail = ref(props.defaultImage);
+const thumbnail = ref(props.defaultImage);
 
 function changeImage(image) {
-  this.thumbnail = image;
+  thumbnail = image;
 }
+
+onMounted(() => {
+  console.log(thumbnail);
+});
 </script>
 
 <template>
@@ -19,7 +26,7 @@ function changeImage(image) {
     <div class="grid grid-cols-4 gap-4 mt-4">
       <template v-for="gallery in galleries" :key="gallery.id">
         <div
-          @click="changeImage(gallery.url)"
+          @click="thumbnail = gallery.url"
           class="overflow-hidden cursor-pointer rounded-2xl"
           :class="{ 'ring-2 ring-indigo-500': thumbnail == gallery.url }"
         >

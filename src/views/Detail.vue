@@ -5,7 +5,7 @@ import { RouterLink, useRoute } from "vue-router";
 import { useUserStore } from "@/stores/user.js";
 import axios from "axios";
 
-const item = ref(false);
+const item = ref({});
 const route = useRoute();
 const userStore = useUserStore();
 
@@ -24,7 +24,7 @@ async function getDataProduct() {
 }
 
 const features = computed(() => {
-  return item.value.features.split(",");
+  return item?.value?.features?.split(",");
 });
 
 onMounted(() => {
