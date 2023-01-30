@@ -8,7 +8,6 @@ import axios from "axios";
 const item = ref({});
 const route = useRoute();
 const userStore = useUserStore();
-const isLoggedIn = computed(() => userStore.isLoggedIn);
 
 const user = computed(() => userStore.getUser);
 
@@ -91,13 +90,15 @@ onMounted(() => {
                 </li>
               </ul>
             </div>
-            <a
-              v-if="isLoggedIn && user.data.subscription > 0"
-              :href="item.file"
-              class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow"
-            >
-              Download Now
-            </a>
+            <div v-if="user.data">
+              <a
+                v-if="user.data.subscription.length > 0"
+                :href="item.file"
+                class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow"
+              >
+                Download Now
+              </a>
+            </div>
             <RouterLink
               v-else
               to="/pricing"

@@ -4,7 +4,7 @@ import { ref, onMounted } from "vue";
 const props = defineProps({
   defaultImage: {
     type: String,
-    default: "/src/assets/img/gallery-1.png",
+    default: "/assets/img/gallery-1.png",
   },
   galleries: Array,
 });
