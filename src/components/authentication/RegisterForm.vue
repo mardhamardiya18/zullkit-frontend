@@ -71,6 +71,7 @@ async function register() {
         name="password"
         class="block w-full py-3 mt-2 border border-gray-300 rounded-full shadow-sm px-7 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:bg-gray-100"
       />
+      <small class="text-red-400">*Min 8 Character</small>
     </div>
     <div class="mt-6">
       <button
