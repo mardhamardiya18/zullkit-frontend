@@ -4,11 +4,11 @@ import axios from "axios"
 export const useUserStore = defineStore({
     id: "user",
     state: () => ({
-        user: false
+        authUser: null,
     }),
     getters: {
-        isLoggedIn: (state) => state.user,
-        getUser: (state) => state.user
+        isLoggedIn: (state) => state.authUser,
+        getUser: (state) => state.authUser
     },
     actions: {
         async fetchUser() {
@@ -18,9 +18,9 @@ export const useUserStore = defineStore({
                         Authorization: localStorage.getItem('token_type') + ' ' + localStorage.getItem('token')
                     }
                 })
-                this.user = data    
+                this.authUser = data   
             } catch (error) {
-                this.user = false
+                this.authUser = null
             }
         }
     }

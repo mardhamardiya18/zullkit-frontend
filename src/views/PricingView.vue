@@ -2,34 +2,28 @@
 import { computed } from "vue";
 import axios from "axios";
 import { useUserStore } from "../stores/user";
-import { useRouter } from "vue-router";
 
-const route = useRouter();
 const user = useUserStore();
 const isLoggedIn = computed(() => user.isLoggedIn);
 
 async function checkout(price) {
-  if (isLoggedIn == true) {
-    try {
-      const response = await axios.post(
-        "https://zullkit-backend.buildwithangga.id/api/checkout",
-        { payment_total: price, payment_status: "PENDING" },
-        {
-          headers: {
-            Authorization:
-              localStorage.getItem("token_type") +
-              " " +
-              localStorage.getItem("token"),
-          },
-        }
-      );
+  try {
+    const response = await axios.post(
+      "https://zullkit-backend.buildwithangga.id/api/checkout",
+      { payment_total: price, payment_status: "PENDING" },
+      {
+        headers: {
+          Authorization:
+            localStorage.getItem("token_type") +
+            " " +
+            localStorage.getItem("token"),
+        },
+      }
+    );
 
-      window.location.href = response.data.data.payment_url;
-    } catch (error) {
-      console.log(error.message);
-    }
-  } else {
-    route.push("/login");
+    window.location.href = response.data.data.payment_url;
+  } catch (error) {
+    console.log(error.message);
   }
 }
 </script>
@@ -100,11 +94,19 @@ async function checkout(price) {
                   </li>
                 </ul>
                 <button
+                  v-if="isLoggedIn"
                   @click="checkout(2000)"
                   class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-black bg-gray-200 border border-transparent rounded-full hover:bg-gray-300 md:py-2 md:text-md md:px-10 hover:shadow"
                 >
                   Checkout Now
                 </button>
+                <router-link
+                  v-else
+                  to="/login"
+                  class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-black bg-gray-200 border border-transparent rounded-full hover:bg-gray-300 md:py-2 md:text-md md:px-10 hover:shadow"
+                >
+                  Checkout Now
+                </router-link>
               </div>
             </div>
             <div>
@@ -190,11 +192,20 @@ async function checkout(price) {
                   </li>
                 </ul>
                 <button
+                  v-if="isLoggedIn"
                   @click="checkout(9000)"
                   class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow"
                 >
                   Checkout Now
                 </button>
+
+                <router-link
+                  v-else
+                  to="/login"
+                  class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow"
+                >
+                  Checkout Now
+                </router-link>
               </div>
             </div>
           </div>

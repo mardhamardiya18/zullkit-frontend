@@ -8,7 +8,6 @@ import UserInfo from "./layout/UserInfo.vue";
 
 const userStore = useUserStore();
 const user = computed(() => userStore.getUser);
-const isLoggedIn = computed(() => userStore.isLoggedIn);
 
 onMounted(() => {
   userStore.fetchUser();
@@ -31,7 +30,7 @@ onMounted(() => {
             />
           </RouterLink>
           <div class="flex md:order-2">
-            <UserInfo v-if="isLoggedIn" :user="user.data" />
+            <UserInfo v-if="user" :user="user.data" />
             <AuthButton v-else />
             <button
               data-collapse-toggle="navbar-cta"
