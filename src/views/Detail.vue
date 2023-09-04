@@ -14,7 +14,7 @@ const user = computed(() => userStore.getUser);
 async function getDataProduct() {
   try {
     const response = await axios.get(
-      "https://zullkit-backend.buildwithangga.id/api/products?id=" +
+      "https://zullkit-backend.belajarkoding.com/api/products?id=" +
         route.params.id
     );
     item.value = response.data.data;

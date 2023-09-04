@@ -11,7 +11,7 @@ const products = ref([]);
 async function getCategoriesData() {
   try {
     const response = await axios.get(
-      "https://zullkit-backend.buildwithangga.id/api/categories?show_product=&limit=4"
+      "https://zullkit-backend.belajarkoding.com/api/categories?show_product=&limit=4"
     );
 
     categories.value = response.data.data.data;
@@ -23,7 +23,7 @@ async function getCategoriesData() {
 async function getProductsData() {
   try {
     const response = await axios.get(
-      "https://zullkit-backend.buildwithangga.id/api/products"
+      "https://zullkit-backend.belajarkoding.com/api/products"
     );
 
     products.value = response.data.data.data;

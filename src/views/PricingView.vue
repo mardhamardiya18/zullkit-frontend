@@ -9,7 +9,7 @@ const isLoggedIn = computed(() => user.isLoggedIn);
 async function checkout(price) {
   try {
     const response = await axios.post(
-      "https://zullkit-backend.buildwithangga.id/api/checkout",
+      "https://zullkit-backend.belajarkoding.com/api/checkout",
       { payment_total: price, payment_status: "PENDING" },
       {
         headers: {
